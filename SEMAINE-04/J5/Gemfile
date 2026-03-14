@@ -1,0 +1,19 @@
+# Indique la source par défaut des gems
+source 'https://rubygems.org'
+
+# Spécifie la version de Ruby utilisée (optionnel mais recommandé)
+ruby '3.4.8'
+
+# Gems standards qui ne seront plus incluses automatiquement à partir de Ruby 4.0.0
+gem 'fiddle'   # Interface Ruby ↔ C (bindings dynamiques)
+gem 'logger'   # Gestion des logs (messages d’information, erreurs, etc.)
+
+# Gem pour manipuler les fichiers CSV (base de données des gossips)
+gem 'csv'
+
+# Gems utiles pour le développement
+gem 'pry'      # Console interactive pour déboguer facilement
+gem 'rspec'    # Framework de tests unitaires Ruby
+
+# Gem pour améliorer l’affichage (optionnel)
+gem 'colorize' # Ajoute des couleurs dans le terminal
