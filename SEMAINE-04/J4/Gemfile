@@ -1,0 +1,26 @@
+# Indique la source par défaut des gems
+source 'https://rubygems.org'
+
+# Spécifie la version de Ruby utilisée (optionnel mais recommandé)
+ruby '3.2.2'
+
+# Gems standards qui ne seront plus incluses automatiquement à partir de Ruby 4.0.0
+gem 'fiddle'   # Interface Ruby ↔ C (bindings dynamiques)
+gem 'logger'   # Gestion des logs (messages d’information, erreurs, etc.)
+
+# Gems pour le projet
+gem 'nokogiri' # Analyse et manipulation du HTML/XML (scrapping)
+gem 'open-uri' # Ouvrir des URLs comme des fichiers (utilisé avec Nokogiri)
+
+# Gems pour la sauvegarde et manipulation des données
+gem 'json'     # Sauvegarde et lecture de fichiers JSON
+gem 'csv'      # Sauvegarde et lecture de fichiers CSV
+
+# Gem pour Google Spreadsheet (optionnel si tu veux exporter vers Google Drive)
+gem 'google_drive'
+
+# Gems pour améliorer l’affichage
+gem 'colorize' # Ajoute des couleurs dans le terminal (optionnel mais sympa)
+
+# Gems pour les tests unitaires
+gem 'rspec'    # Framework de tests Ruby
