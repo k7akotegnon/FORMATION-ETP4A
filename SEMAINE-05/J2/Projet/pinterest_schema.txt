@@ -1,0 +1,8 @@
+Tables :
+- users (id, name)
+- pins (id, url, user_id)
+- comments (id, body, pin_id, user_id)
+
+Relations :
+- 1-N : un user peut créer plusieurs pins
+- 1-N : un pin peut avoir plusieurs commentaires

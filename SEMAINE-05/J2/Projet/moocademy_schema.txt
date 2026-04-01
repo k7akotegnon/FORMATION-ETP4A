@@ -1,0 +1,6 @@
+Tables :
+- courses (id, title, description)
+- lessons (id, title, body, course_id)
+
+Relations :
+- 1-N : un cours a plusieurs leçons

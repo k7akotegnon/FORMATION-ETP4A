@@ -1,0 +1,9 @@
+Tables :
+- users (id, name)
+- links (id, url, user_id)
+- comments (id, body, user_id, link_id, parent_comment_id)
+
+Relations :
+- 1-N : un user peut poster plusieurs links
+- 1-N : un link peut avoir plusieurs commentaires
+- auto-relation : un commentaire peut avoir un parent_comment_id (commentaire de commentaire)

@@ -1,0 +1,8 @@
+Tables :
+- students (id, name)
+- courses (id, title)
+- inscriptions (student_id, course_id)
+
+Relations :
+- 1-N : un cours peut avoir plusieurs élèves
+- 1-1 : un élève est inscrit à un seul cours
