@@ -1,0 +1,34 @@
+<!-- lib/views/index.erb -->
+
+<html>
+  <head>
+    <title>Liste des gossips</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+  <body>
+    <h1>Bienvenue sur The Gossip Project</h1>
+
+    <!-- Lien pour créer un nouveau gossip -->
+    <p><a href="/gossips/new/">Créer un nouveau gossip</a></p>
+
+    <!-- Boucle sur tous les gossips -->
+    <ul>
+      <% @gossips.each_with_index do |gossip, index| %>
+        <li>
+          <strong><%= gossip.author %></strong> : <%= gossip.content %>
+
+          <!-- Lien pour voir le gossip -->
+          <a href="/gossips/<%= index + 1 %>/">Voir</a>
+
+          <!-- Lien pour modifier le gossip -->
+          <a href="/gossips/<%= index + 1 %>/edit/">Modifier</a>
+
+          <!-- Formulaire pour supprimer le gossip -->
+          <form action="/gossips/<%= index + 1 %>/delete" method="POST" style="display:inline;">
+            <input type="submit" value="Supprimer"/>
+          </form>
+        </li>
+      <% end %>
+    </ul>
+  </body>
+</html>

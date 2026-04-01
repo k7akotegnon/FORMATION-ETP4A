@@ -1,0 +1,27 @@
+<!-- lib/views/new_gossip.erb -->
+
+<html>
+  <head>
+    <title>Créer un nouveau gossip</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+  <body>
+    <h1>Créer un nouveau gossip</h1>
+
+    <!-- Formulaire d’ajout -->
+    <form action="/gossips/new/" method="POST">
+      <p>
+        Auteur : 
+        <input type="text" name="gossip_author" placeholder="Ton nom"/>
+      </p>
+      <p>
+        Contenu : 
+        <input type="text" name="gossip_content" placeholder="Ton potin"/>
+      </p>
+      <input type="submit" value="Enregistrer"/>
+    </form>
+
+    <!-- Lien retour -->
+    <p><a href="/">← Retour à l'accueil</a></p>
+  </body>
+</html>
