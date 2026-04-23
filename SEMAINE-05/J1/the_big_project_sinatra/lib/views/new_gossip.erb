@@ -1,27 +1,19 @@
-<!-- lib/views/new_gossip.erb -->
-
-<html>
-  <head>
-    <title>Créer un nouveau gossip</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-  </head>
-  <body>
-    <h1>Créer un nouveau gossip</h1>
-
-    <!-- Formulaire d’ajout -->
-    <form action="/gossips/new/" method="POST">
-      <p>
-        Auteur : 
-        <input type="text" name="gossip_author" placeholder="Ton nom"/>
-      </p>
-      <p>
-        Contenu : 
-        <input type="text" name="gossip_content" placeholder="Ton potin"/>
-      </p>
-      <input type="submit" value="Enregistrer"/>
+<div class="row justify-content-center">
+  <div class="col-md-6 bg-white p-4 shadow-sm rounded">
+    <h2 class="text-center mb-4">Balance ton potin !</h2>
+    <form action='/gossips/new/' method='POST'>
+      <div class="form-group">
+        <label for="author">Ton petit nom</label>
+        <input type='text' class="form-control" name='gossip_author' id="author" placeholder="Ex: Jean-Michel Concierge" required>
+      </div>
+      <div class="form-group">
+        <label for="content">Le ragot du jour</label>
+        <textarea class="form-control" name='gossip_content' id="content" rows="3" placeholder="Raconte-nous tout..." required></textarea>
+      </div>
+      <button type='submit' class="btn btn-success btn-block shadow-sm">Enregistrer en base</button>
     </form>
-
-    <!-- Lien retour -->
-    <p><a href="/">← Retour à l'accueil</a></p>
-  </body>
-</html>
+    <div class="text-center mt-3">
+      <a href="/" class="text-muted">Retour à l'accueil</a>
+    </div>
+  </div>
+</div>

@@ -1,20 +1,20 @@
-<!-- lib/views/show.erb -->
-<html>
-  <head>
-    <title>Un gossip en détail</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-  </head>
-  <body>
-    <h1>Détail du gossip</h1>
-
-    <p><strong>Auteur :</strong> <%= @gossip.author %></p>
-    <p><strong>Potin :</strong> <%= @gossip.content %></p>
-
-    <!-- Formulaire pour supprimer ce gossip -->
-    <form action="/gossips/<%= @id %>/delete" method="POST">
-      <input type="submit" value="Supprimer ce gossip"/>
-    </form>
-
-    <p><a href="/">← Retour à l'accueil</a></p>
-  </body>
-</html>
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card shadow-sm">
+      <div class="card-header bg-info text-white">
+        Potin n°<%= id %>
+      </div>
+      <div class="card-body p-5">
+        <blockquote class="blockquote mb-0">
+          <p class="font-italic">"<%= gossip.content %>"</p>
+          <footer class="blockquote-footer text-right">
+            Partagé par <cite title="Source Title" class="font-weight-bold"><%= gossip.author %></cite>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+    <div class="mt-4 text-center">
+      <a href="/" class="btn btn-secondary">Retour à la liste complète</a>
+    </div>
+  </div>
+</div>

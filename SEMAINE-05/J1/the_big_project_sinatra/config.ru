@@ -1,9 +1,8 @@
-# config.ru
+# config.ru - S5J1 The Gossip Project
 require 'bundler'
 Bundler.require
 
-# On charge directement le fichier controller.rb depuis lib/
-require_relative 'lib/controller'
+$:.unshift File.expand_path("./../lib", __FILE__)
+require 'controller'
 
-# On lance l'application
 run ApplicationController

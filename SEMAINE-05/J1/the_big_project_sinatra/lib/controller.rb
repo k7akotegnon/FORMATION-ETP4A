@@ -1,52 +1,25 @@
-require 'sinatra/base'
-require_relative 'gossip'
+# lib/controller.rb - ApplicationController
+require 'gossip'
 
 class ApplicationController < Sinatra::Base
-  # 👉 Configuration pour servir les fichiers statiques (CSS, images, JS)
-  set :public_folder, File.expand_path("../public", __dir__)
-
-  # Page d’accueil
+  # Page d'accueil : affiche la liste des potins [17]
   get '/' do
-    @gossips = Gossip.all
-    erb :index
+    erb :index, locals: {gossips: Gossip.all}
   end
 
-  # Formulaire de création
+  # Page du formulaire de création [15]
   get '/gossips/new/' do
     erb :new_gossip
   end
 
-  # Enregistrement d’un nouveau gossip
+  # Traitement du formulaire et redirection [18, 19]
   post '/gossips/new/' do
     Gossip.new(params["gossip_author"], params["gossip_content"]).save
     redirect '/'
   end
 
-  # Affichage d’un gossip spécifique
+  # Page d'affichage d'un potin spécifique (Route dynamique) [13, 20]
   get '/gossips/:id/' do
-    id = params['id'].to_i
-    @gossip = Gossip.all[id - 1]
-    @id = id
-    erb :show
-  end
-
-  # Suppression
-  post '/gossips/:id/delete' do
-    Gossip.delete(params['id'].to_i)
-    redirect '/'
-  end
-
-  # Formulaire de modification
-  get '/gossips/:id/edit/' do
-    id = params['id'].to_i
-    @gossip = Gossip.all[id - 1]
-    @id = id
-    erb :edit_gossip
-  end
-
-  # Mise à jour
-  post '/gossips/:id/update' do
-    Gossip.update(params['id'].to_i, params["gossip_author"], params["gossip_content"])
-    redirect '/'
+    erb :show, locals: {gossip: Gossip.find(params['id']), id: params['id']}
   end
 end

@@ -1,34 +1,19 @@
-<!-- lib/views/index.erb -->
+<div class="jumbotron text-center bg-white shadow-sm">
+  <h1 class="display-4">Bienvenue sur The Gossip Project !</h1>
+  <p class="lead">Le premier site de commérages entre moussaillons.</p>
+  <a class="btn btn-primary btn-lg" href="/gossips/new/" role="button">Ajouter un potin</a>
+</div>
 
-<html>
-  <head>
-    <title>Liste des gossips</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-  </head>
-  <body>
-    <h1>Bienvenue sur The Gossip Project</h1>
-
-    <!-- Lien pour créer un nouveau gossip -->
-    <p><a href="/gossips/new/">Créer un nouveau gossip</a></p>
-
-    <!-- Boucle sur tous les gossips -->
-    <ul>
-      <% @gossips.each_with_index do |gossip, index| %>
-        <li>
-          <strong><%= gossip.author %></strong> : <%= gossip.content %>
-
-          <!-- Lien pour voir le gossip -->
-          <a href="/gossips/<%= index + 1 %>/">Voir</a>
-
-          <!-- Lien pour modifier le gossip -->
-          <a href="/gossips/<%= index + 1 %>/edit/">Modifier</a>
-
-          <!-- Formulaire pour supprimer le gossip -->
-          <form action="/gossips/<%= index + 1 %>/delete" method="POST" style="display:inline;">
-            <input type="submit" value="Supprimer"/>
-          </form>
-        </li>
-      <% end %>
-    </ul>
-  </body>
-</html>
+<div class="row">
+  <% gossips.each_with_index do |gossip, index| %>
+    <div class="col-md-4">
+      <div class="card gossip-card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title text-primary"><%= gossip.author %></h5>
+          <p class="card-text text-truncate"><%= gossip.content %></p>
+          <a href="/gossips/<%= index %>/" class="btn btn-outline-info btn-sm">Lire la suite</a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

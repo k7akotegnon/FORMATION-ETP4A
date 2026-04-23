@@ -1,8 +1,14 @@
+# Gemfile - S5J1 The Gossip Project (Sinatra)
 source 'https://rubygems.org'
 
-ruby '3.4.8'
+ruby '4.0.1'          # ou la version que tu utilises (vérifie avec ruby -v)
 
 gem 'sinatra'
-gem 'csv'
-gem 'puma'     # serveur HTTP moderne
-# gem 'webrick' # si tu préfères le serveur classique
+gem 'rackup'        # Nécessaire pour lancer le serveur
+gem 'shotgun'         # pour recharger automatiquement le serveur
+gem 'csv'             # déjà inclus dans Ruby, mais on le note pour la clarté
+gem 'webrick'          # pour le serveur web (inclus dans Ruby 3.0+)
+gem 'bundler'         # pour gérer les dépendances
+gem 'rerun'             # pour recharger automatiquement le serveur (alternative à shotgun)
+
+gem 'pry'

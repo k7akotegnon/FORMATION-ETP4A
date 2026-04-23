@@ -1,43 +1,38 @@
 require 'csv'
 
 class Gossip
-  attr_reader :author, :content
+  attr_accessor :author, :content
 
   def initialize(author, content)
     @author = author
     @content = content
   end
 
+  # Sauvegarde le potin dans le CSV 
   def save
-  CSV.open("./db/gossip.csv", "ab", col_sep: ",", quote_char: '"') do |csv|
-    csv << [author, content]
-  end
-end
-
-
-  def self.all
-    all_gossips = []
-    CSV.read("./db/gossip.csv").each do |row|
-      all_gossips << Gossip.new(row[0], row[1])
-    end
-    return all_gossips
-  end
-
-  # Nouvelle méthode pour supprimer un gossip par son index
-  def self.delete(id)
-    gossips = CSV.read("./db/gossip.csv")
-    gossips.delete_at(id - 1)  # id commence à 1, array à 0
-    CSV.open("./db/gossip.csv", "w") do |csv|
-      gossips.each { |row| csv << row }
+    CSV.open("./db/gossip.csv", "ab") do |csv|
+      csv << [@author, @content]
     end
   end
 
-  def self.update(id, author, content)
-  gossips = CSV.read("./db/gossip.csv")
-  gossips[id - 1] = [author, content]   # remplace la ligne
-  CSV.open("./db/gossip.csv", "w") do |csv|
-    gossips.each { |row| csv << row }
+  # Récupère tous les potins sous forme d'array d'objets Gossip 
+  # lib/gossip.rb
+
+def self.all
+  all_gossips = [] # On initialise un array vide 
+  
+  # On parcourt chaque ligne du CSV [1]
+  CSV.read("./db/gossip.csv").each do |csv_line|
+    # On prend l'élément 0 pour l'auteur et l'élément 1 pour le contenu 
+    all_gossips << Gossip.new(csv_line[0], csv_line[1])
   end
+  
+  return all_gossips # On retourne l'array d'objets Gossip 
 end
 
+  # Trouve un potin spécifique par son ID (index du CSV) 
+  def self.find(id)
+    all_gossips = self.all
+    return all_gossips[id.to_i]
+  end
 end
