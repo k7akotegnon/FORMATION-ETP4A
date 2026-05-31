@@ -47,6 +47,6 @@ Pour tester le tunnel d'achat avec des événements existants :
 
 ## **Lien vers le projet**
 
-[Accéder au dossier projet](Lien GitHub) 
+[Accéder au dossier projet](https://github.com/k7akotegnon/S7J3-EventFreeka-Services-et-API.git)
 
-[Event freeka S7J3 en ligne](Lien Render)
+[Event freeka S7J2 en ligne](https://s7j3-eventfreeka-services-et-api.onrender.com)
